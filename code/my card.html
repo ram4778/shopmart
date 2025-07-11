@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Cart - G-Mart</title>
+   <link rel="icon" type="imge/png" href="New folder/w.jpg">
+  <link rel="stylesheet" href="my card.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">G-Mart</div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="my card.html">MyCart</a></li>
+      <li><a href="myorder.html".html">Orders</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="userlogin.html">User Login</a></li>
+    </ul>
+  </nav>
+
+  <section class="cart-section">
+    <h2>My Cart</h2>
+    <div class="cart-items">
+
+      <!-- Apple -->
+      <div class="cart-card">
+        <img src="New folder/download.jpeg" alt="Apple">
+        <h3>Apple</h3>
+        <p>$1.20</p>
+        <button class="remove-btn">Remove from Cart</button>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+
+      <!-- Milk -->
+      <div class="cart-card">
+        <img src="New folder/download (2).jpeg" alt="Milk">
+        <h3>Milk</h3>
+        <p>$0.23</p>
+        <button class="remove-btn">Remove from Cart</button>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+
+      <!-- Chicken -->
+      <div class="cart-card">
+        <img src="New folder/Broiler_Chicken.webp" alt="Chicken">
+        <h3>Chicken</h3>
+        <p>$2.92</p>
+        <button class="remove-btn">Remove from Cart</button>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+
+          <!-- Chicken -->
+      <div class="cart-card">
+        <img src="New folder/download (1).jpeg" alt="orange">
+        <h3>orange</h3>
+        <p>$1.00</p>
+        <button class="remove-btn">Remove from Cart</button>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    const removeButtons = document.querySelectorAll('.remove-btn');
+    removeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.parentElement.style.display = 'none';
+        alert("Item removed from cart!");
+      });
+    });
+
+    const buyButtons = document.querySelectorAll('.buy-btn');
+    buyButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        alert("Redirecting to Place Order page...");
+        window.location.href = 'placeorder.html';
+      });
+    });
+  </script>
+
+</body>
+</html>

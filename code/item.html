@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Items - G-Mart</title>
+   <link rel="icon" type="imge/png" href="New folder/w.jpg">
+  <link rel="stylesheet" href="item.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">G-Mart</div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="my card.html">MyCart</a></li>
+      <li><a href="myorder.html">Orders</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="userlogin.html">User Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Filter Section -->
+  <div class="filter-section">
+    <input type="text" placeholder="Search By Product Name" id="searchInput" />
+    <select id="categoryFilter">
+      <option value="">Filter By Category</option>
+      <option value="fruits">Fruits</option>
+      <option value="dairy">Dairy</option>
+      <option value="nuts">Nuts</option>
+      <option value="meat">Meat</option>
+    </select>
+  </div>
+
+  <!-- Product Grid -->
+  <div class="product-grid" id="productGrid">
+    <div class="product-card" data-name="apple" data-category="fruits">
+      <img src="New folder/download.jpeg" alt="Apple">
+      <h3>Apple</h3>
+      <p>$1.20</p>
+      <button>Buy Now</button>
+    </div>
+
+    <div class="product-card" data-name="orange" data-category="fruits">
+      <img src="New folder/download (1).jpeg" alt="Orange">
+      <h3>Orange</h3>
+      <p>$1.00</p>
+      <button>Buy Now</button>
+    </div>
+
+    <div class="product-card" data-name="milk" data-category="dairy">
+      <img src="New folder/download (2).jpeg" alt="Milk">
+      <h3>Milk</h3>
+      <p>$0.23</p>
+      <button>Buy Now</button>
+    </div>
+
+    <div class="product-card" data-name="cashew" data-category="nuts">
+      <img src="New folder/download (3).jpeg" alt="Cashew">
+      <h3>Cashew</h3>
+      <p>$2.50</p>
+      <button>Buy Now</button>
+    </div>
+
+    <div class="product-card" data-name="chicken" data-category="meat">
+      <img src="New folder/Broiler_Chicken.webp" alt="Chicken">
+      <h3>Chicken</h3>
+      <p>$2.93</p>
+      <button>Buy Now</button>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const productCards = document.querySelectorAll('.product-card');
+
+    function filterProducts() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const selectedCategory = categoryFilter.value;
+
+      productCards.forEach(card => {
+        const name = card.getAttribute('data-name');
+        const category = card.getAttribute('data-category');
+
+        const matchesName = name.includes(searchTerm);
+        const matchesCategory = selectedCategory === '' || category === selectedCategory;
+
+        card.style.display = matchesName && matchesCategory ? 'block' : 'none';
+      });
+    }
+
+    searchInput.addEventListener('input', filterProducts);
+    categoryFilter.addEventListener('change', filterProducts);
+  </script>
+
+</body>
+</html>
+

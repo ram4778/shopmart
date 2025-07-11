@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - G-Mart</title>
+   <link rel="icon" type="imge/png" href="New folder/w.jpg">
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+
+  <div class="register-container">
+    <h2>Create G-Mart Account</h2>
+    <form id="registerForm">
+      <input type="text" id="username" placeholder="Full Name" required />
+      <input type="email" id="email" placeholder="Email Address" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+      <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="userlogin.html">Login here</a>.</p>
+  </div>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return;
+      }
+
+      const user = { username, email, password };
+      localStorage.setItem("gmart_user", JSON.stringify(user));
+
+      alert("Registration successful!");
+      window.location.href = "userlogin.html";
+    });
+  </script>
+
+</body>
+</html>

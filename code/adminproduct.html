@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Product - G-Mart Admin</title>
+   <link rel="icon" type="imge/png" href="New folder/w.jpg">
+  <link rel="stylesheet" href="adminproduct.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">G-Mart Admin</div>
+    <ul class="nav-links">
+      <li><a href="admindash.html">Dashboard</a></li>
+      <li><a href="adminuser.html">Users</a></li>
+      <li><a href="adminproduct.html">Products</a></li>
+      <li><a href="adminorder.html">Orders</a></li>
+      <li><a href="adminlogin.html">Logout</a></li>
+    </ul>
+  </nav>
+
+  <section class="add-product-section">
+    <h2>Add New Product</h2>
+    <form id="productForm">
+      <input type="text" id="productName" placeholder="Product Name" required />
+      <select id="productCategory" required>
+        <option value="">Select Category</option>
+        <option value="fruits">Fruits</option>
+        <option value="dairy">Dairy</option>
+        <option value="nuts">Nuts</option>
+        <option value="meat">Meat</option>
+      </select>
+      <input type="number" id="productPrice" placeholder="Price (in USD)" min="0.01" step="0.01" required />
+      <input type="text" id="productImage" placeholder="Image URL" required />
+      <button type="submit">Add Product</button>
+    </form>
+  </section>
+
+  <script>
+    document.getElementById("productForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("productName").value.trim();
+      const category = document.getElementById("productCategory").value;
+      const price = document.getElementById("productPrice").value;
+      const image = document.getElementById("productImage").value.trim();
+
+      if (!name || !category || !price || !image) {
+        alert("Please fill out all fields.");
+        return;
+      }
+
+      alert(`Product "${name}" added successfully!`);
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>

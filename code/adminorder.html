@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin - Orders - G-Mart</title>
+   <link rel="icon" type="imge/png" href="New folder/w.jpg">
+  <link rel="stylesheet" href="adminorder.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">G-Mart Admin</div>
+    <ul class="nav-links">
+      <li><a href="admindash.html">Dashboard</a></li>
+      <li><a href="adminuser.html">Users</a></li>
+      <li><a href="adminproduct.html">Products</a></li>
+      <li><a href="adminorder.html">Orders</a></li>
+      <li><a href="adminlogin.html">Logout</a></li>
+    </ul>
+  </nav>
+
+  <section class="orders-section">
+    <h2>User Orders</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>User</th>
+          <th>Product</th>
+          <th>Qty</th>
+          <th>Status</th>
+          <th>Update</th>
+        </tr>
+      </thead>
+      <tbody id="ordersTableBody">
+        <!-- Rows will be added via JavaScript -->
+      </tbody>
+    </table>
+  </section>
+
+  <script>
+    const orders = [
+      { id: 1001, user: "user1@example.com", product: "Apple", qty: 2, status: "Pending" },
+      { id: 1002, user: "user2@example.com", product: "Milk", qty: 1, status: "Shipped" },
+      { id: 1003, user: "user3@example.com", product: "Chicken", qty: 3, status: "Pending" },
+    ];
+
+    const tableBody = document.getElementById("ordersTableBody");
+
+    function renderOrders() {
+      tableBody.innerHTML = "";
+      orders.forEach((order, index) => {
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+          <td>${order.id}</td>
+          <td>${order.user}</td>
+          <td>${order.product}</td>
+          <td>${order.qty}</td>
+          <td><span class="status ${order.status.toLowerCase()}">${order.status}</span></td>
+          <td>
+            <select onchange="updateStatus(${index}, this.value)">
+              <option value="">--Change--</option>
+              <option value="Pending">Pending</option>
+              <option value="Shipped">Shipped</option>
+              <option value="Delivered">Delivered</option>
+            </select>
+          </td>
+        `;
+
+        tableBody.appendChild(row);
+      });
+    }
+
+    function updateStatus(index, newStatus) {
+      if (newStatus) {
+        orders[index].status = newStatus;
+        alert(`Order ${orders[index].id} updated to ${newStatus}`);
+        renderOrders();
+      }
+    }
+
+    renderOrders();
+  </script>
+
+</body>
+</html>

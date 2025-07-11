@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order History - G-Mart</title>
+   <link rel="icon" type="imge/png" href="New folder/w.jpg">
+  <link rel="stylesheet" href="history.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">G-Mart</div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="my card.html">MyCart</a></li>
+      <li><a href="myorder.html">Orders</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="userlogin.html">User Login</a></li>
+    </ul>
+  </nav>
+
+  <section class="history-section">
+    <h2>My Order History</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Status</th>
+          <th>Payment</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody id="historyBody">
+        <!-- Populated by JS -->
+      </tbody>
+    </table>
+  </section>
+
+  <script>
+    const historyOrders = [
+      { id: "ORD091", product: "Cashew", qty: 1, status: "Delivered", payment: "Paid", date: "2025-06-20" },
+      { id: "ORD092", product: "Orange", qty: 3, status: "Delivered", payment: "Paid", date: "2025-06-18" }
+    ];
+
+    const historyBody = document.getElementById("historyBody");
+
+    historyOrders.forEach(order => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${order.id}</td>
+        <td>${order.product}</td>
+        <td>${order.qty}</td>
+        <td><span class="status delivered">${order.status}</span></td>
+        <td>${order.payment}</td>
+        <td>${order.date}</td>
+      `;
+      historyBody.appendChild(row);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard - G-Mart</title>
+   <link rel="icon" type="imge/png" href="New folder/w.jpg">
+  <link rel="stylesheet" href="admindash.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">G-Mart Admin</div>
+    <ul class="nav-links">
+      <li><a href="admindash.html">Dashboard</a></li>
+      <li><a href="adminuser.html">Users</a></li>
+      <li><a href="adminproduct.html">Products</a></li>
+      <li><a href="adminorder.html">Orders</a></li>
+      <li><a href="adminlogin.html">Logout</a></li>
+    </ul>
+  </nav>
+
+  <section class="dashboard">
+    <h2>Admin Dashboard Overview</h2>
+    <div class="cards">
+      <div class="card" id="totalUsers">
+        <h3>Total Users</h3>
+        <p>0</p>
+      </div>
+      <div class="card" id="totalProducts">
+        <h3>Total Products</h3>
+        <p>0</p>
+      </div>
+      <div class="card" id="totalOrders">
+        <h3>Total Orders</h3>
+        <p>0</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Simulated data (can be fetched from backend in real app)
+    const users = 12;
+    const products = 27;
+    const orders = 8;
+
+    // Update DOM
+    document.getElementById("totalUsers").querySelector("p").textContent = users;
+    document.getElementById("totalProducts").querySelector("p").textContent = products;
+    document.getElementById("totalOrders").querySelector("p").textContent = orders;
+  </script>
+
+</body>
+</html>

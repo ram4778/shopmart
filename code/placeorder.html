@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Place Order - G-Mart</title>
+   <link rel="icon" type="imge/png" href="New folder/w.jpg">
+  <link rel="stylesheet" href="placeorder.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">G-Mart</div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="my card.html">MyCart</a></li>
+      <li><a href="myorder.html">Orders</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="userlogin.html">User Login</a></li>
+    </ul>
+  </nav>
+
+  <section class="order-form-section">
+    <h2>Place Your Order</h2>
+    <form id="orderForm">
+      <input type="text" id="name" placeholder="Enter Full Name" required />
+      <input type="tel" id="phone" placeholder="Enter Phone Number" required />
+      <textarea id="address" rows="4" placeholder="Enter Address" required></textarea>
+      <input type="text" id="city" placeholder="Enter City" required />
+      <button type="submit">Place Order</button>
+    </form>
+  </section>
+
+  <script>
+    const form = document.getElementById("orderForm");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const city = document.getElementById("city").value.trim();
+
+      if (!name || !phone || !address || !city) {
+        alert("Please fill all the fields.");
+        return;
+      }
+
+      alert(`Thank you, ${name}! Your order has been placed.`);
+      form.reset();
+      window.location.href = "orders.html"; // redirect to orders page
+    });
+  </script>
+
+</body>
+</html>
